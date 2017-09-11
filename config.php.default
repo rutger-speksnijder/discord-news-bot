@@ -1,0 +1,35 @@
+<?php
+/**
+ * The main configuration file for the Discord bot and the news channels it should observe.
+ */
+return [
+    'bot' => [
+        'token' => '',
+    ],
+    'news' => [
+        'twitter' => [
+            [
+                'name' => '',
+                'url' => '',
+                'enabled' => false,
+                'channel' => '',
+            ],
+        ],
+        'steam' => [
+            [
+                'name' => '',
+                'url' => '',
+                'enabled' => false,
+                'channel' => '',
+            ],
+        ],
+        'twitch' => [
+            [
+                'name' => '',
+                'url' => '',
+                'enabled' => false,
+                'channel' => '',
+            ],
+        ],
+    ],
+];

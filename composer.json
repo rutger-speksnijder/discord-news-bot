@@ -2,14 +2,15 @@
     "name": "rutger/discord-news-bot",
     "description": "A default package for creating a news bot.",
     "type": "library",
-    "require": {
-        "laravel/lumen": "^5.5"
-    },
     "license": "MIT",
     "authors": [
         {
             "name": "Rutger Speksnijder",
             "email": "rutgerspeksnijder@hotmail.com"
         }
-    ]
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.3",
+        "restcord/restcord": "^0.1.4"
+    }
 }
