@@ -11,6 +11,7 @@
     ],
     "require": {
         "guzzlehttp/guzzle": "^6.3",
-        "restcord/restcord": "^0.1.4"
+        "restcord/restcord": "^0.1.4",
+        "spatie/twitter-streaming-api": "^1.2"
     }
 }
