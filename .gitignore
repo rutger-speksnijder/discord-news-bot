@@ -1,6 +1,9 @@
 ### Project specific ###
 config.php
 
+# SFTP Config
+sftp-config.json
+
 # Created by https://www.gitignore.io/api/windows,laravel,composer
 
 ### Composer ###
