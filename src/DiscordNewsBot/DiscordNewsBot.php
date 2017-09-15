@@ -29,6 +29,9 @@ class DiscordNewsBot
         'Twitter' => [
             'process' => 'single',
         ],
+        'Twitch' => [
+            'process' => 'single',
+        ],
     ];
 
     /**

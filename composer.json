@@ -12,6 +12,7 @@
     "require": {
         "guzzlehttp/guzzle": "^6.3",
         "restcord/restcord": "^0.1.4",
-        "spatie/twitter-streaming-api": "^1.2"
+        "spatie/twitter-streaming-api": "^1.2",
+        "nicklaw5/twitch-api-php": "^0.1.5"
     }
 }

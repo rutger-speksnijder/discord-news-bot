@@ -47,4 +47,38 @@ abstract class Fetcher
      * @return void.
      */
     abstract public function run();
+
+    /**
+     * Adds a message to the messages file.
+     *
+     * @param string $channel The Discord channel this message is for.
+     * @param string $format The message format.
+     * @param optional array $fields The fields to replace.
+     *
+     * @return void.
+     */
+    final protected function addMessage($channel, $format, $fields = [])
+    {
+        // Get the current message data
+        $data = file_get_contents(ROOT . '/messages.json');
+        $messages = json_decode($data, true);
+        if ($messages === null) {
+            $messages = [];
+        }
+
+        // Format the message
+        $message = $format;
+        foreach ($fields as $key => $value) {
+            $message = str_replace($key, $value, $message);
+        }
+
+        // Add the message to the messages array
+        $messages[] = [
+            'channel' => $channel,
+            'message' => $message,
+        ];
+
+        // Store the messages
+        file_put_contents(ROOT . '/messages.json', json_encode($messages));
+    }
 }
