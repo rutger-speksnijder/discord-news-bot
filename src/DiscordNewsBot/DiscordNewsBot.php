@@ -118,7 +118,7 @@ class DiscordNewsBot
     private function initializeProviders()
     {
         // Loop through the providers
-        foreach ($this->config['providers'] as $name => $data) {
+        foreach (array_keys($this->config['providers']) as $name) {
             // Check if the provider exists
             if (!isset($this->providers[$name])) {
                 throw new \Exception("Unable to start DiscordNewsBot. Unknown provider \"{$name}\".");
