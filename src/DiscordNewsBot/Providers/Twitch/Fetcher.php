@@ -98,7 +98,7 @@ class Fetcher extends \DiscordNewsBot\Fetcher
                 // Check if the user stopped streaming and was previously streaming
                 if (empty($result['stream']) && $stream['streaming']) {
                     // Set streaming to false
-                    $this->streams[$key]['streaming'] = true;
+                    $this->streams[$key]['streaming'] = false;
 
                     // Add the message
                     $this->addMessage(
