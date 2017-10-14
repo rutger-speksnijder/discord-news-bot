@@ -5,10 +5,6 @@ require 'vendor/autoload.php';
 // Project autoloader
 require 'autoload.php';
 
-// Temporary enable errors
-error_reporting(E_ALL);
-ini_set('display_errors', 'on');
-
 // Define application root
 define('ROOT', dirname(__FILE__));
 
