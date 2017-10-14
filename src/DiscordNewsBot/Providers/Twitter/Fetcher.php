@@ -90,14 +90,17 @@ class Fetcher extends \DiscordNewsBot\Fetcher
             return;
         }
 
-        // Add the message
-        $this->addMessage(
-            $stream['channel'],
-            $stream['message'],
-            [
-                '[link]' => "https://twitter.com/{$tweet['user']['screen_name']}/status/{$tweet['id_str']}",
-            ]
-        );
+        // Loop through the stream's messages
+        foreach ($stream['messages'] as $message) {
+            // Add the message
+            $this->addMessage(
+                $message['channel'],
+                $message['message'],
+                [
+                    '[link]' => "https://twitter.com/{$tweet['user']['screen_name']}/status/{$tweet['id_str']}",
+                ]
+            );
+        }
     }
 
     /**

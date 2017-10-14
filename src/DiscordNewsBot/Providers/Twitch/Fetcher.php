@@ -22,6 +22,12 @@ class Fetcher extends \DiscordNewsBot\Fetcher
     private $firstLoop;
 
     /**
+     * The sleep duration between loops in seconds.
+     * @var int.
+     */
+    private $sleepDuration = 60;
+
+    /**
      * Validates the config and streams data.
      *
      * @throws Exception Throws an exception for invalid data.
@@ -82,14 +88,17 @@ class Fetcher extends \DiscordNewsBot\Fetcher
                     // Set streaming to true
                     $this->streams[$key]['streaming'] = true;
 
-                    // Add the message
-                    $this->addMessage(
-                        $stream['channel'],
-                        $stream['online-message'],
-                        [
-                            '[title]' => $result['stream']['channel']['status'],
-                        ]
-                    );
+                    // Loop through the stream's messages
+                    foreach ($stream['messages'] as $message) {
+                        // Add the message
+                        $this->addMessage(
+                            $message['channel'],
+                            $message['online-message'],
+                            [
+                                '[title]' => $result['stream']['channel']['status'],
+                            ]
+                        );
+                    }
 
                     // Continue to the next stream
                     continue;
@@ -100,19 +109,22 @@ class Fetcher extends \DiscordNewsBot\Fetcher
                     // Set streaming to false
                     $this->streams[$key]['streaming'] = false;
 
-                    // Add the message
-                    $this->addMessage(
-                        $stream['channel'],
-                        $stream['offline-message']
-                    );
+                    // Loop through the stream's messages
+                    foreach ($stream['messages'] as $message) {
+                        // Add the message
+                        $this->addMessage(
+                            $message['channel'],
+                            $message['offline-message']
+                        );
+                    }
 
                     // Continue to the next stream
                     continue;
                 }
             }
 
-            // Sleep 5 minutes
-            sleep(300);
+            // Sleep until next loop
+            sleep($this->sleepDuration);
         }
     }
 }

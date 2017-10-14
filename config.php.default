@@ -4,31 +4,53 @@
  */
 return [
     'bot' => [
-        'token' => '',
+        'token' => '', // Bot token from Discord. You can use https://discordapi.com/permissions.html to generate permissions.
     ],
-    'news' => [
-        'twitter' => [
-            [
-                'name' => '',
-                'url' => '',
-                'enabled' => false,
-                'channel' => '',
+    'providers' => [
+        'Twitter' => [
+            'streams' => [
+                // You can add several streams to track multiple twitter accounts
+                [
+                    'id' => '', // Use http://gettwitterid.com to get a Twitter ID from a Twitter handle.
+                    'messages' => [
+                        // You can add multiple messages here, if you want to send the message to different channels (same server or different servers)
+                        [
+                            'channel' => '',
+
+                            // Use "[link]" (without quotes) to display the link to the tweet
+                            'message' => 'User just tweeted: [link]',
+                        ],
+                    ],
+                ],
+            ],
+            'config' => [
+                // You can get these configuration details from the Twitter developer pages
+                'access-token' => '',
+                'access-token-secret' => '',
+                'consumer-key' => '',
+                'consumer-secret' => '',
             ],
         ],
-        'steam' => [
-            [
-                'name' => '',
-                'url' => '',
-                'enabled' => false,
-                'channel' => '',
+        'Twitch' => [
+            'streams' => [
+                // Add whichever stream you'd like to track here
+                [
+                    // The user's id, you can get these by using the API or online services (Google: twitch username to id).
+                    'userId' => '',
+                    'messages' => [
+                        [
+                            'channel' => '',
+
+                            // Use "[title]" (without quotes) to display the stream title
+                            'online-message' => 'User has gone online: [title].', // Message when the user goes online
+                            'offline-message' => 'User has gone offline.', // Message when the user goes offline
+                        ],
+                    ],
+                ],
             ],
-        ],
-        'twitch' => [
-            [
-                'name' => '',
-                'url' => '',
-                'enabled' => false,
-                'channel' => '',
+            'config' => [
+                // You can get the client id from the Twitch developer pages
+                'client-id' => '',
             ],
         ],
     ],
